@@ -1,0 +1,29 @@
+#game2048 {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.table {
+  border: 2px solid green;
+  border-collapse:separate;border-spacing:5px;
+  display:table;
+  
+}
+
+.row {
+  display:table-row;
+}
+
+.cell {
+  position: relative;
+  left:0px;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+  border: 2px solid black;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  font-size: 30px;
+}
