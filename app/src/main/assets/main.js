@@ -3,6 +3,11 @@ var display = function(tiles) {
     for (j = 0; j<4; j++) {
       const selector = `.table > .row:nth-child(${i+1}) > .cell:nth-child(${j+1})`
       document.querySelector(selector).innerHTML = tiles[i*4+j] != 0 ? tiles[i*4+j] : ''
+      var colors = {0:     "#CCC",   2: "#ABABFF",    4: "#0000FF",   8: "#00007F",
+                    16:  "#00BFBF", 32: "#006666",   64: "#40FF40", 128: "#007F00",
+                    256: "#FF9F40", 512: "#BF6000", 512: "#CC0000",   2048: "#000"};
+      document.querySelector(selector).style.backgroundColor = colors[tiles[i*4+j]]
+
     }
   }
 }
@@ -111,27 +116,6 @@ var eventToUp = function(tiles) {
 var eventToDown = function(tiles) {
   return eventToUp(tiles.reverse()).reverse()
 }
-
-/*var main = function(tiles) {
-  tiles = refresh(tiles)
-  document.addEventListener("keydown", function(e) {
-    var new_tile = tiles;
-    var keyCode = e.keyCode;
-    if(keyCode == 37) {
-      new_tiles = eventToLeft(tiles)
-    } else if (keyCode == 38) {
-      new_tiles = eventToUp(tiles)
-    } else if (keyCode == 39) {
-      new_tiles = eventToRight(tiles)
-    } else if (keyCode == 40) {
-        new_tiles = eventToDown(tiles)
-    }
-    if (JSON.stringify(tiles) != JSON.stringify(new_tiles)) {
-      tiles = refresh(new_tiles)
-    }
-  }, false);
-}([0, 0, 0, 0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0])
-*/
 
 function init(tiles) {
     console.log(tiles)
